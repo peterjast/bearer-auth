@@ -24,7 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(authRoutes);
 
 // Catchalls
-app.use(notFound);
+app.use('*', notFound);
 app.use(errorHandler);
 
 module.exports = {
