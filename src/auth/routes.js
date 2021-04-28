@@ -7,6 +7,10 @@ const User = require('./models/users.js');
 const basicAuth = require('./middleware/basic.js')
 const bearerAuth = require('./middleware/bearer.js')
 
+authRouter.get('/', (req, res) => {
+  res.status(200).send('Welcome to my bearer auth server');
+}) 
+
 authRouter.post('/signup', async (req, res, next) => {
   try {
     let user = new User(req.body);
@@ -36,7 +40,7 @@ authRouter.get('/users', bearerAuth, async (req, res, next) => {
 });
 
 authRouter.get('/secret', bearerAuth, async (req, res, next) => {
-  res.status(200).send("Welcome to the secret area!")
+  res.status(200).send('Welcome to the secret area!')
 });
 
 
