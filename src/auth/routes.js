@@ -4,12 +4,8 @@ const express = require('express');
 const authRouter = express.Router();
 
 const User = require('./models/users.js');
-const basicAuth = require('./middleware/basic.js')
-const bearerAuth = require('./middleware/bearer.js')
-
-authRouter.get('/', (req, res) => {
-  res.status(200).send('Welcome to my bearer auth server');
-}) 
+const basicAuth = require('./middleware/basic.js');
+const bearerAuth = require('./middleware/bearer.js');
 
 authRouter.post('/signup', async (req, res, next) => {
   try {
